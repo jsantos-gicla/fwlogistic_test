@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ICA.FWL.Server" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ICA.FWL.Server" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ICA.FWL.Server/Imports">
+      <xsd:import namespace="http://ICA.FWL.Server" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/FWL.Server.Core" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Optimization" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/FWL.Server" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="fwlsService_ServerAlive_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServerAlive" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_ServerAlive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServerAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SessionCreate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SessionCreate" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SessionCreate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SessionCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SessionClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:SessionClose" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SessionClose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SessionCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SolveProblem_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolveProblem" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SolveProblem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolveProblemResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_EvaluateProblem_InputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluateProblem" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_EvaluateProblem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluateProblemResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SolveODMatrix_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolveODMatrix" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_SolveODMatrix_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolveODMatrixResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_LocateOverNetwork_InputMessage">
+    <wsdl:part name="parameters" element="tns:LocateOverNetwork" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_LocateOverNetwork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LocateOverNetworkResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblem" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsUser" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsApp" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsLabel" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsByLabelUserApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsByLabelUserApp" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_CancelProblemsByLabelUserApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelProblemsByLabelUserAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemData" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemSolution_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemSolution" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemSolution_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemSolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblems" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemsCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemsCount" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemsCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_getFirstQueued_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFirstQueued" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_getFirstQueued_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFirstQueuedResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemAbstract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemAbstract" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemAbstract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemAbstractResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemsByExternalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemsByExternalId" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetProblemsByExternalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProblemsByExternalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetServerStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerStatus" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetServerStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetServerGeneralStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerGeneralStatus" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_GetServerGeneralStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerGeneralStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_ProblemSolved_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ProblemSolved" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_ProblemEvaluated_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ProblemEvaluated" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_ProblemCanceled_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ProblemCanceled" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_ErrorInProblem_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ErrorInProblem" />
+  </wsdl:message>
+  <wsdl:message name="fwlsService_ServerPing_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ServerPing" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="fwlsService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ServerAlive">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/ServerAlive" message="tns:fwlsService_ServerAlive_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/ServerAliveResponse" message="tns:fwlsService_ServerAlive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SessionCreate">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/SessionCreate" message="tns:fwlsService_SessionCreate_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/SessionCreateResponse" message="tns:fwlsService_SessionCreate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SessionClose">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/SessionClose" message="tns:fwlsService_SessionClose_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/SessionCloseResponse" message="tns:fwlsService_SessionClose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SolveProblem">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/SolveProblem" message="tns:fwlsService_SolveProblem_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/SolveProblemResponse" message="tns:fwlsService_SolveProblem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="EvaluateProblem">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/EvaluateProblem" message="tns:fwlsService_EvaluateProblem_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/EvaluateProblemResponse" message="tns:fwlsService_EvaluateProblem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SolveODMatrix">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/SolveODMatrix" message="tns:fwlsService_SolveODMatrix_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/SolveODMatrixResponse" message="tns:fwlsService_SolveODMatrix_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LocateOverNetwork">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/LocateOverNetwork" message="tns:fwlsService_LocateOverNetwork_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/LocateOverNetworkResponse" message="tns:fwlsService_LocateOverNetwork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CancelProblem">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblem" message="tns:fwlsService_CancelProblem_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemResponse" message="tns:fwlsService_CancelProblem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CancelProblemsUser">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsUser" message="tns:fwlsService_CancelProblemsUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsUserResponse" message="tns:fwlsService_CancelProblemsUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CancelProblemsApp">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsApp" message="tns:fwlsService_CancelProblemsApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsAppResponse" message="tns:fwlsService_CancelProblemsApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CancelProblemsLabel">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsLabel" message="tns:fwlsService_CancelProblemsLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsLabelResponse" message="tns:fwlsService_CancelProblemsLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CancelProblemsByLabelUserApp">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsByLabelUserApp" message="tns:fwlsService_CancelProblemsByLabelUserApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/CancelProblemsByLabelUserAppResponse" message="tns:fwlsService_CancelProblemsByLabelUserApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProblemData">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemData" message="tns:fwlsService_GetProblemData_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemDataResponse" message="tns:fwlsService_GetProblemData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProblemSolution">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemSolution" message="tns:fwlsService_GetProblemSolution_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemSolutionResponse" message="tns:fwlsService_GetProblemSolution_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProblems">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblems" message="tns:fwlsService_GetProblems_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemsResponse" message="tns:fwlsService_GetProblems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProblemsCount">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemsCount" message="tns:fwlsService_GetProblemsCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemsCountResponse" message="tns:fwlsService_GetProblemsCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getFirstQueued">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/getFirstQueued" message="tns:fwlsService_getFirstQueued_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/getFirstQueuedResponse" message="tns:fwlsService_getFirstQueued_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProblemAbstract">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemAbstract" message="tns:fwlsService_GetProblemAbstract_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemAbstractResponse" message="tns:fwlsService_GetProblemAbstract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProblemsByExternalId">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemsByExternalId" message="tns:fwlsService_GetProblemsByExternalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetProblemsByExternalIdResponse" message="tns:fwlsService_GetProblemsByExternalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetServerStatus">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetServerStatus" message="tns:fwlsService_GetServerStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetServerStatusResponse" message="tns:fwlsService_GetServerStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetServerGeneralStatus">
+      <wsdl:input wsaw:Action="http://ICA.FWL.Server/fwlsService/GetServerGeneralStatus" message="tns:fwlsService_GetServerGeneralStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/GetServerGeneralStatusResponse" message="tns:fwlsService_GetServerGeneralStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ProblemSolved">
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/ProblemSolved" message="tns:fwlsService_ProblemSolved_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ProblemEvaluated">
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/ProblemEvaluated" message="tns:fwlsService_ProblemEvaluated_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ProblemCanceled">
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/ProblemCanceled" message="tns:fwlsService_ProblemCanceled_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ErrorInProblem">
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/ErrorInProblem" message="tns:fwlsService_ErrorInProblem_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ServerPing">
+      <wsdl:output wsaw:Action="http://ICA.FWL.Server/fwlsService/ServerPing" message="tns:fwlsService_ServerPing_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

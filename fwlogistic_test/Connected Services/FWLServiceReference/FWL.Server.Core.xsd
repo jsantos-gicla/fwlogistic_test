@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/FWL.Server.Core" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FWL.Server.Core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Optimization" />
+  <xs:complexType name="fwlsSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxPriority" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="fwlsSession" nillable="true" type="tns:fwlsSession" />
+  <xs:complexType name="ProblemAbstract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveProblems" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Optimization" minOccurs="0" name="Data" nillable="true" type="q1:Data" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Finished" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="ProblemId" type="ser:guid" />
+      <xs:element minOccurs="0" name="QueuePlace" type="xs:int" />
+      <xs:element minOccurs="0" name="ScenarioId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Optimization" minOccurs="0" name="Solution" nillable="true" type="q2:Solution" />
+      <xs:element minOccurs="0" name="Started" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="tns:ProblemStatus" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProblemAbstract" nillable="true" type="tns:ProblemAbstract" />
+  <xs:simpleType name="ProblemStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Queued" />
+      <xs:enumeration value="Running" />
+      <xs:enumeration value="Solved" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Evaluated" />
+      <xs:enumeration value="Canceled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProblemStatus" nillable="true" type="tns:ProblemStatus" />
+  <xs:complexType name="ArrayOfProblemAbstract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProblemAbstract" nillable="true" type="tns:ProblemAbstract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProblemAbstract" nillable="true" type="tns:ArrayOfProblemAbstract" />
+</xs:schema>

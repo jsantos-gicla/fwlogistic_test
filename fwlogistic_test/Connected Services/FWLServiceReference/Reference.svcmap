@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b3ed71e0-3ea1-4b9f-a735-7c578f39dacb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ICA.FWL.Server.wsdl" MetadataType="Wsdl" ID="51a3a93c-9aeb-47a5-83ba-9113462e5908" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="58f12059-9863-47b3-af3d-42ca6d60c69d" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="ICA.FWL.Server.xsd" MetadataType="Schema" ID="d580c8ea-46a6-41f4-af11-fffdb6ec04d1" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="df1b29ea-f09c-41b2-b808-1ee6fb5920e8" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="FWL.Server.Core.xsd" MetadataType="Schema" ID="69aafa6d-8806-45bf-90b9-54bc3c175f1a" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="Optimization.xsd" MetadataType="Schema" ID="dc25bc45-a92d-4f28-966d-5391b3d18efd" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="50911c04-ae64-4ff6-b2e0-3e511ab83ba7" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+    <MetadataFile FileName="FWL.Server.xsd" MetadataType="Schema" ID="7b7fcfae-44c8-45bd-b2ed-664f0c9d96ec" SourceId="1" SourceUrl="net.tcp://vigilia.ica.com.uy:4510/FWLServer/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

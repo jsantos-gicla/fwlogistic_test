@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Optimization" />
+  <xs:complexType name="ArrayOfKeyValueOfintanyType">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintanyType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintanyType" nillable="true" type="tns:ArrayOfKeyValueOfintanyType" />
+  <xs:complexType name="ArrayOfanyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+  <xs:complexType name="ArrayOfKeyValueOfstringanyType">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringanyType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringanyType" nillable="true" type="tns:ArrayOfKeyValueOfstringanyType" />
+  <xs:complexType name="ArrayOfKeyValueOfintint">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintint">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintint" nillable="true" type="tns:ArrayOfKeyValueOfintint" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfKeyValueOfintVisitKVKUNVLfty7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfKeyValueOfintVisitKVKUNVLfty7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOfintVisitKVKUNVLf" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfKeyValueOfintVisitKVKUNVLfty7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfKeyValueOfintVisitKVKUNVLfty7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOfintVisitKVKUNVLf">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintVisitKVKUNVLf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Optimization" name="Value" nillable="true" type="q1:Visit" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintVisitKVKUNVLf" nillable="true" type="tns:ArrayOfKeyValueOfintVisitKVKUNVLf" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOfstringanyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1ty7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1ty7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1ty7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1ty7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:long" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOflongMatrixCellKVKUNVLf" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOflongMatrixCellKVKUNVLf">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOflongMatrixCellKVKUNVLf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:long" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Optimization" name="Value" nillable="true" type="q2:MatrixCell" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOflongMatrixCellKVKUNVLf" nillable="true" type="tns:ArrayOfKeyValueOflongMatrixCellKVKUNVLf" />
+  <xs:complexType name="ArrayOfint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfKeyValueOfintanyTypety7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfKeyValueOfintanyTypety7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOfintanyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfKeyValueOfintanyTypety7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfKeyValueOfintanyTypety7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOfintDARPVisitKVKUNVLf">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintDARPVisitKVKUNVLf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Optimization" name="Value" nillable="true" type="q3:DARPVisit" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintDARPVisitKVKUNVLf" nillable="true" type="tns:ArrayOfKeyValueOfintDARPVisitKVKUNVLf" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfanyTypety7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfanyTypety7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfanyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfanyTypety7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfanyTypety7Ep6D1" />
+  <xs:complexType name="ArrayOfArrayOfKeyValueOfintint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfKeyValueOfintint" nillable="true" type="tns:ArrayOfKeyValueOfintint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrayOfKeyValueOfintint" nillable="true" type="tns:ArrayOfArrayOfKeyValueOfintint" />
+  <xs:complexType name="ArrayOfKeyValueOflonganyType">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOflonganyType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:long" />
+            <xs:element name="Value" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOflonganyType" nillable="true" type="tns:ArrayOfKeyValueOflonganyType" />
+  <xs:complexType name="ArrayOfKeyValueOfstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringstring">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringstring" nillable="true" type="tns:ArrayOfKeyValueOfstringstring" />
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:complexType name="ArrayOfKeyValueOfstringArrayOfKeyValueOfstringanyTypety7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringArrayOfKeyValueOfstringanyTypety7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOfstringanyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringArrayOfKeyValueOfstringanyTypety7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOfstringArrayOfKeyValueOfstringanyTypety7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOfintClusterKVKUNVLf">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintClusterKVKUNVLf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Optimization" name="Value" nillable="true" type="q4:Cluster" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintClusterKVKUNVLf" nillable="true" type="tns:ArrayOfKeyValueOfintClusterKVKUNVLf" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfRouteKVKUNVLf">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfRouteKVKUNVLf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Optimization" name="Value" nillable="true" type="q5:ArrayOfRoute" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfRouteKVKUNVLf" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfRouteKVKUNVLf" />
+  <xs:complexType name="ArrayOfKeyValueOfintSimplifiedClusterKVKUNVLf">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintSimplifiedClusterKVKUNVLf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Optimization" name="Value" nillable="true" type="q6:SimplifiedCluster" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintSimplifiedClusterKVKUNVLf" nillable="true" type="tns:ArrayOfKeyValueOfintSimplifiedClusterKVKUNVLf" />
+  <xs:complexType name="ArrayOfKeyValueOflongArrayOfKeyValueOflonglongty7Ep6D1">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOflongArrayOfKeyValueOflonglongty7Ep6D1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:long" />
+            <xs:element name="Value" nillable="true" type="tns:ArrayOfKeyValueOflonglong" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOflongArrayOfKeyValueOflonglongty7Ep6D1" nillable="true" type="tns:ArrayOfKeyValueOflongArrayOfKeyValueOflonglongty7Ep6D1" />
+  <xs:complexType name="ArrayOfKeyValueOflonglong">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOflonglong">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:long" />
+            <xs:element name="Value" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOflonglong" nillable="true" type="tns:ArrayOfKeyValueOflonglong" />
+  <xs:complexType name="ArrayOfboolean">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfboolean" nillable="true" type="tns:ArrayOfboolean" />
+  <xs:complexType name="ArrayOfKeyValueOfstringshort">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringshort">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" type="xs:short" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringshort" nillable="true" type="tns:ArrayOfKeyValueOfstringshort" />
+</xs:schema>

@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Optimization" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Optimization" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="OptimizationData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Data">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="constraintTypes" nillable="true" type="q1:ArrayOfKeyValueOfstringArrayOfKeyValueOfstringanyTypety7Ep6D1" />
+          <xs:element minOccurs="0" name="initialSolution" nillable="true" type="tns:OptimizationSolution" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q2:ArrayOfKeyValueOfstringanyType" />
+          <xs:element minOccurs="0" name="walkingVelocity" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OptimizationData" nillable="true" type="tns:OptimizationData" />
+  <xs:complexType name="Data">
+    <xs:sequence />
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Data" nillable="true" type="tns:Data" />
+  <xs:complexType name="AssignmentData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationData">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="barriers" nillable="true" type="q3:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="capacityMeasure" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="clustersCapacities" nillable="true" type="q4:ArrayOfanyType" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="customers" nillable="true" type="q5:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="mainLocation" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="measure" nillable="true" type="xs:anyType" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="seeds" nillable="true" type="q6:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AssignmentData" nillable="true" type="tns:AssignmentData" />
+  <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="currentStock" nillable="true" type="q7:ArrayOfKeyValueOfstringanyType" />
+          <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="estimatedQuantitiesCalendar" nillable="true" type="q8:ArrayOfanyType" />
+          <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="feasibleClusterCombinations" nillable="true" type="q9:ArrayOfArrayOfKeyValueOfintint" />
+          <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orders" nillable="true" type="q10:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="storageCapacity" nillable="true" type="q11:ArrayOfKeyValueOfstringanyType" />
+          <xs:element minOccurs="0" name="storageCost" type="xs:double" />
+          <xs:element minOccurs="0" name="storageCostUnit" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ItemTW">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Item">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="maxWaitingTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="softWindowsCoefficient" type="xs:double" />
+          <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="timeWindows" nillable="true" type="q12:ArrayOfKeyValueOfintArrayOfanyTypety7Ep6D1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ItemTW" nillable="true" type="tns:ItemTW" />
+  <xs:complexType name="Item">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="affinityCharacteristics" nillable="true" type="q13:ArrayOfKeyValueOfintanyType" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="auxiliarData" nillable="true" type="q14:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="drivingDirection" type="xs:int" />
+      <xs:element minOccurs="0" name="externalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="geographicShape" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="hierarchy" type="xs:int" />
+      <xs:element minOccurs="0" name="lunchAllowed" type="tns:Constants.AllowedLunchType" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="radius" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Item" nillable="true" type="tns:Item" />
+  <xs:simpleType name="Constants.AllowedLunchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AllowedLunch" />
+      <xs:enumeration value="NotAllowedLunch" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Constants.AllowedLunchType" nillable="true" type="tns:Constants.AllowedLunchType" />
+  <xs:complexType name="GeographicShape">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:long" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="coordsList" nillable="true" type="q15:ArrayOfanyType" />
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="direction" type="xs:int" />
+      <xs:element minOccurs="0" name="distance" type="xs:double" />
+      <xs:element minOccurs="0" name="fictitious" type="xs:boolean" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pointsList" nillable="true" type="q16:ArrayOfanyType" />
+      <xs:element minOccurs="0" name="time" type="ser:duration" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="GeographicShape" nillable="true" type="tns:GeographicShape" />
+  <xs:complexType name="FWLPoint">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Point">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="curbApproach" type="tns:Constants.CurbApproach" />
+          <xs:element minOccurs="0" name="distanceToEdge" type="xs:double" />
+          <xs:element minOccurs="0" name="edgeCode1" type="xs:int" />
+          <xs:element minOccurs="0" name="edgeCode2" type="xs:int" />
+          <xs:element minOccurs="0" name="fromJunction" type="xs:int" />
+          <xs:element minOccurs="0" name="located" type="xs:boolean" />
+          <xs:element minOccurs="0" name="posAlong" type="xs:double" />
+          <xs:element minOccurs="0" name="projectedCoords" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="side" type="xs:int" />
+          <xs:element minOccurs="0" name="toJunction" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FWLPoint" nillable="true" type="tns:FWLPoint" />
+  <xs:complexType name="Point">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GeographicShape">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="coords" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Point" nillable="true" type="tns:Point" />
+  <xs:complexType name="Coords">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="x" type="xs:double" />
+      <xs:element minOccurs="0" name="y" type="xs:double" />
+      <xs:element minOccurs="0" name="z" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Coords" nillable="true" type="tns:Coords" />
+  <xs:complexType name="Arc">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GeographicShape">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="finalPoint" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="initialPoint" nillable="true" type="xs:anyType" />
+          <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="points" nillable="true" type="q17:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Arc" nillable="true" type="tns:Arc" />
+  <xs:simpleType name="Constants.CurbApproach">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EitherSide" />
+      <xs:enumeration value="RightSide" />
+      <xs:enumeration value="LeftSide" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Constants.CurbApproach" nillable="true" type="tns:Constants.CurbApproach" />
+  <xs:complexType name="Characteristic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Characteristic" nillable="true" type="tns:Characteristic" />
+  <xs:complexType name="Lunch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lunchTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="maxDrivingTime" type="ser:duration" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Lunch" nillable="true" type="tns:Lunch" />
+  <xs:complexType name="AutonomyReloadingPoint">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="characteristics" nillable="true" type="q18:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="vehiclesData" nillable="true" type="q19:ArrayOfKeyValueOfintanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AutonomyReloadingPoint" nillable="true" type="tns:AutonomyReloadingPoint" />
+  <xs:complexType name="VehicleAutonomyReloading">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="autonomyValue" type="xs:double" />
+      <xs:element minOccurs="0" name="serviceTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="vehicle" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="VehicleAutonomyReloading" nillable="true" type="tns:VehicleAutonomyReloading" />
+  <xs:complexType name="Vehicle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="affinityCostFactor" type="xs:double" />
+          <xs:element minOccurs="0" name="anotherVehiclesMinRemoteness" type="xs:double" />
+          <xs:element minOccurs="0" name="arrivalTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="assignedDepot" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="category" type="xs:int" />
+          <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="compartments" nillable="true" type="q20:ArrayOfanyType" />
+          <xs:element minOccurs="0" name="costPerDistance" type="xs:double" />
+          <xs:element minOccurs="0" name="departureTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="destinationItem" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="fixedCost" type="xs:double" />
+          <xs:element minOccurs="0" name="lunch" nillable="true" type="tns:Lunch" />
+          <xs:element minOccurs="0" name="maxCost" type="xs:double" />
+          <xs:element minOccurs="0" name="maxDistance" type="xs:double" />
+          <xs:element minOccurs="0" name="maxDuration" type="ser:duration" />
+          <xs:element minOccurs="0" name="maxOrders" type="xs:int" />
+          <xs:element minOccurs="0" name="maxUsage" type="ser:duration" />
+          <xs:element minOccurs="0" name="minimizeDuration" type="xs:boolean" />
+          <xs:element minOccurs="0" name="originItem" nillable="true" type="xs:anyType" />
+          <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="productReloadingPoints" nillable="true" type="q21:ArrayOfanyType" />
+          <xs:element minOccurs="0" name="redepartureTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="regularTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="reuse" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Vehicle" nillable="true" type="tns:Vehicle" />
+  <xs:complexType name="AcodikeVehicle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Vehicle">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="driverChange" type="ser:duration" />
+          <xs:element minOccurs="0" name="workingZone" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcodikeVehicle" nillable="true" type="tns:AcodikeVehicle" />
+  <xs:complexType name="Compartment">
+    <xs:sequence>
+      <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="capacities" nillable="true" type="q22:ArrayOfKeyValueOfstringanyType" />
+      <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="characteristics" nillable="true" type="q23:ArrayOfKeyValueOfintanyType" />
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="initialStock" nillable="true" type="q24:ArrayOfKeyValueOfintanyType" />
+      <xs:element minOccurs="0" name="loadingTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="loadingTimeFactor" type="xs:double" />
+      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="minimumStock" nillable="true" type="q25:ArrayOfKeyValueOfintanyType" />
+      <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="optimalStock" nillable="true" type="q26:ArrayOfKeyValueOfintanyType" />
+      <xs:element minOccurs="0" name="unloadingTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="unloadingTimeFactor" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Compartment" nillable="true" type="tns:Compartment" />
+  <xs:complexType name="AcodikeCompartment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Compartment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="carafeUnloadingRate" type="xs:double" />
+          <xs:element minOccurs="0" name="tankUnloadingRate" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcodikeCompartment" nillable="true" type="tns:AcodikeCompartment" />
+  <xs:complexType name="Capacity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Capacity" nillable="true" type="tns:Capacity" />
+  <xs:complexType name="ProductQuantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="product" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="quantity" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ProductQuantity" nillable="true" type="tns:ProductQuantity" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="capacities" nillable="true" type="q27:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ProductReloadingPoint">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="supportLoading" type="xs:boolean" />
+          <xs:element minOccurs="0" name="supportUnloading" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProductReloadingPoint" nillable="true" type="tns:ProductReloadingPoint" />
+  <xs:complexType name="AcodikeProductReloadingPoint">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProductReloadingPoint">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="loadingRate" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcodikeProductReloadingPoint" nillable="true" type="tns:AcodikeProductReloadingPoint" />
+  <xs:complexType name="DARPRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deliveryOrders" nillable="true" type="q28:ArrayOfanyType" />
+          <xs:element minOccurs="0" name="maxTime" type="ser:duration" />
+          <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pickupOrders" nillable="true" type="q29:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DARPRequest" nillable="true" type="tns:DARPRequest" />
+  <xs:complexType name="Order">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="blockedCluster" type="xs:boolean" />
+          <xs:element minOccurs="0" name="customer" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="darpRequest" nillable="true" type="xs:anyType" />
+          <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deliveryCharacteristics" nillable="true" type="q30:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deliveryQuantities" nillable="true" type="q31:ArrayOfKeyValueOfstringanyType" />
+          <xs:element minOccurs="0" name="loadingTime" type="ser:duration" />
+          <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orderProducts" nillable="true" type="q32:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pickupCharacteristics" nillable="true" type="q33:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pickupQuantities" nillable="true" type="q34:ArrayOfKeyValueOfstringanyType" />
+          <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="unfeasibleClusters" nillable="true" type="q35:ArrayOfKeyValueOfintint" />
+          <xs:element minOccurs="0" name="unloadingTime" type="ser:duration" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="OrderProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="productQuantity" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="type" type="tns:Constants.PickupAndDeliveryType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="OrderProduct" nillable="true" type="tns:OrderProduct" />
+  <xs:simpleType name="Constants.PickupAndDeliveryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pickup">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Delivery">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PickupDelivery">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Constants.PickupAndDeliveryType" nillable="true" type="tns:Constants.PickupAndDeliveryType" />
+  <xs:complexType name="Route">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="compartmentsVisits" nillable="true" type="q36:ArrayOfKeyValueOfintArrayOfKeyValueOfintVisitKVKUNVLfty7Ep6D1" />
+          <xs:element minOccurs="0" name="cost" type="xs:double" />
+          <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="darpVisits" nillable="true" type="q37:ArrayOfKeyValueOfintDARPVisitKVKUNVLf" />
+          <xs:element minOccurs="0" name="distance" type="xs:double" />
+          <xs:element minOccurs="0" name="lastProductReloadingPointVisit" nillable="true" type="tns:Visit" />
+          <xs:element minOccurs="0" name="lunchVisit" nillable="true" type="tns:Visit" />
+          <xs:element minOccurs="0" name="maxEndingTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="minStartTime" type="xs:dateTime" />
+          <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="points" nillable="true" type="q38:ArrayOfanyType" />
+          <xs:element minOccurs="0" name="time" type="ser:duration" />
+          <xs:element minOccurs="0" name="unloadingBay" type="xs:int" />
+          <xs:element minOccurs="0" name="unmodifiablePositions" type="xs:int" />
+          <xs:element minOccurs="0" name="vehicle" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="visits" nillable="true" type="tns:ArrayOfVisit" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Route" nillable="true" type="tns:Route" />
+  <xs:complexType name="Visit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arrivalTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="blockedRoute" type="xs:boolean" />
+      <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="compartmentsCapacities" nillable="true" type="q39:ArrayOfKeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1" />
+      <xs:element minOccurs="0" name="compartmentsPair" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="darpVisit" nillable="true" type="tns:DARPVisit" />
+      <xs:element minOccurs="0" name="departureTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="direction" type="xs:int" />
+      <xs:element minOccurs="0" name="doneWalking" type="xs:boolean" />
+      <xs:element minOccurs="0" name="item" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="position" type="xs:int" />
+      <xs:element minOccurs="0" name="route" nillable="true" type="tns:Route" />
+      <xs:element minOccurs="0" name="serviceStartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="serviceTime" type="ser:duration" />
+      <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="stock" nillable="true" type="q40:ArrayOfKeyValueOfintArrayOfKeyValueOfintanyTypety7Ep6D1" />
+      <xs:element minOccurs="0" name="stopLocation" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="tw" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="waitingTime" type="ser:duration" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Visit" nillable="true" type="tns:Visit" />
+  <xs:complexType name="DARPVisit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="darpRequest" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="deliveryVisits" nillable="true" type="tns:ArrayOfVisit" />
+      <xs:element minOccurs="0" name="pickupVisits" nillable="true" type="tns:ArrayOfVisit" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="DARPVisit" nillable="true" type="tns:DARPVisit" />
+  <xs:complexType name="ArrayOfVisit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Visit" nillable="true" type="tns:Visit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVisit" nillable="true" type="tns:ArrayOfVisit" />
+  <xs:complexType name="AcodikeCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Customer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="isStorageATank" type="xs:boolean" />
+          <xs:element minOccurs="0" name="zone" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcodikeCustomer" nillable="true" type="tns:AcodikeCustomer" />
+  <xs:complexType name="AcodikeOrder">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Order">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fixedUnloadingTime" type="ser:duration" />
+          <xs:element minOccurs="0" name="isDeliveryEstimated" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcodikeOrder" nillable="true" type="tns:AcodikeOrder" />
+  <xs:complexType name="PeriodEstimatedQuantities">
+    <xs:sequence>
+      <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="inputQuantities" nillable="true" type="q41:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="isAbleToVisit" type="xs:boolean" />
+      <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="outputQuantities" nillable="true" type="q42:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="period" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PeriodEstimatedQuantities" nillable="true" type="tns:PeriodEstimatedQuantities" />
+  <xs:complexType name="EuclideanMeasure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="velocity" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="EuclideanMeasure" nillable="true" type="tns:EuclideanMeasure" />
+  <xs:complexType name="MatrixMeasure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="ser:guid" />
+      <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="matrix" nillable="true" type="q43:ArrayOfKeyValueOfintArrayOfKeyValueOflongArrayOfKeyValueOflongMatrixCellKVKUNVLfty7Ep6D1ty7Ep6D1" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="MatrixMeasure" nillable="true" type="tns:MatrixMeasure" />
+  <xs:complexType name="MatrixCell">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="destination" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="distance" type="xs:double" />
+      <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="geographicRepresentation" nillable="true" type="q44:ArrayOfanyType" />
+      <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orderedEdgesElements" nillable="true" type="q45:ArrayOfint" />
+      <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orderedJunctionsElements" nillable="true" type="q46:ArrayOfint" />
+      <xs:element minOccurs="0" name="origin" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="time" type="ser:duration" />
+      <xs:element minOccurs="0" name="vehicleCategory" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="MatrixCell" nillable="true" type="tns:MatrixCell" />
+  <xs:complexType name="TimeWindow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="endingTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="period" type="xs:int" />
+      <xs:element minOccurs="0" name="startingTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="type" type="tns:Constants.TimeWindowsType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="TimeWindow" nillable="true" type="tns:TimeWindow" />
+  <xs:simpleType name="Constants.TimeWindowsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hard" />
+      <xs:enumeration value="Soft" />
+      <xs:enumeration value="HardSoft" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Constants.TimeWindowsType" nillable="true" type="tns:Constants.TimeWindowsType" />
+  <xs:complexType name="Depot">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ItemTW">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="capacitiesRanges" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="loadBaysCount" type="xs:int" />
+          <xs:element minOccurs="0" name="loadUnloadBaysCount" type="xs:int" />
+          <xs:element minOccurs="0" name="type" type="xs:int" />
+          <xs:element minOccurs="0" name="unloadBaysCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Depot" nillable="true" type="tns:Depot" />
+  <xs:complexType name="ClusterCapacities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="deliveryCapacities" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="pickupCapacities" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ClusterCapacities" nillable="true" type="tns:ClusterCapacities" />
+  <xs:complexType name="CapacitiesRange">
+    <xs:sequence>
+      <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="maxCapacities" nillable="true" type="q47:ArrayOfKeyValueOfstringanyType" />
+      <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="minCapacities" nillable="true" type="q48:ArrayOfKeyValueOfstringanyType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CapacitiesRange" nillable="true" type="tns:CapacitiesRange" />
+  <xs:complexType name="CompartmentsPair">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deliveryCompartment" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="pickupCompartment" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CompartmentsPair" nillable="true" type="tns:CompartmentsPair" />
+  <xs:complexType name="SimplifiedZoningData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="capacityMeasure" nillable="true" type="xs:string" />
+          <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="clustersCapacities" nillable="true" type="q49:ArrayOfanyType" />
+          <xs:element minOccurs="0" name="customers" nillable="true" type="tns:ArrayOfSimplifiedZoningCustomer" />
+          <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="freeDays" nillable="true" type="q50:ArrayOfint" />
+          <xs:element minOccurs="0" name="mainLocation" nillable="true" type="tns:Point" />
+          <xs:element minOccurs="0" name="optStep" type="tns:SimplifiedZoningData.OptimizationStep" />
+          <xs:element minOccurs="0" name="variability" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimplifiedZoningData" nillable="true" type="tns:SimplifiedZoningData" />
+  <xs:complexType name="ArrayOfSimplifiedZoningCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SimplifiedZoningCustomer" nillable="true" type="tns:SimplifiedZoningCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSimplifiedZoningCustomer" nillable="true" type="tns:ArrayOfSimplifiedZoningCustomer" />
+  <xs:complexType name="SimplifiedZoningCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="blocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="currentCluster" type="xs:int" />
+      <xs:element minOccurs="0" name="externalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="frec" type="xs:double" />
+      <xs:element minOccurs="0" name="hierarchy" type="xs:int" />
+      <xs:element minOccurs="0" name="load" type="xs:double" />
+      <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="unfeasibleClusters" nillable="true" type="q51:ArrayOfKeyValueOfintint" />
+      <xs:element minOccurs="0" name="variability" type="xs:int" />
+      <xs:element minOccurs="0" name="x" type="xs:double" />
+      <xs:element minOccurs="0" name="y" type="xs:double" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="SimplifiedZoningCustomer" nillable="true" type="tns:SimplifiedZoningCustomer" />
+  <xs:simpleType name="SimplifiedZoningData.OptimizationStep">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VehicleZoning">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DayZoning">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SimplifiedZoningData.OptimizationStep" nillable="true" type="tns:SimplifiedZoningData.OptimizationStep" />
+  <xs:complexType name="TSPData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationData">
+        <xs:sequence>
+          <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="barriers" nillable="true" type="q52:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="capacityMeasure" nillable="true" type="xs:string" />
+          <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="darpRequests" nillable="true" type="q53:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="dynamicProblem" type="xs:boolean" />
+          <xs:element minOccurs="0" name="finalItem" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="lunch" nillable="true" type="tns:Lunch" />
+          <xs:element minOccurs="0" name="maxEndingTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="measure" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="minStartTime" type="xs:dateTime" />
+          <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orders" nillable="true" type="q54:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="pickupDeliveryType" type="tns:Constants.PickupAndDeliveryType" />
+          <xs:element minOccurs="0" name="startItem" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="vehicle" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TSPData" nillable="true" type="tns:TSPData" />
+  <xs:complexType name="OnePeriodVRPData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:VRPData">
+        <xs:sequence>
+          <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orders" nillable="true" type="q55:ArrayOfKeyValueOfintanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OnePeriodVRPData" nillable="true" type="tns:OnePeriodVRPData" />
+  <xs:complexType name="VRPData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationData">
+        <xs:sequence>
+          <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="barriers" nillable="true" type="q56:ArrayOfKeyValueOflonganyType" />
+          <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="capacities" nillable="true" type="q57:ArrayOfKeyValueOfstringstring" />
+          <xs:element minOccurs="0" name="capacityMeasure" nillable="true" type="xs:string" />
+          <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="characteristics" nillable="true" type="q58:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="connectionString" nillable="true" type="xs:string" />
+          <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="customers" nillable="true" type="q59:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="darpRequests" nillable="true" type="q60:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="depots" nillable="true" type="q61:ArrayOfKeyValueOfintArrayOfanyTypety7Ep6D1" />
+          <xs:element minOccurs="0" name="dynamicProblem" type="xs:boolean" />
+          <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="hierarchyLevels" nillable="true" type="q62:ArrayOfstring" />
+          <xs:element minOccurs="0" name="impedance" type="tns:Constants.Impedance" />
+          <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="incompatibleCharacteristicPairs" nillable="true" type="q63:ArrayOfKeyValueOfstringanyType" />
+          <xs:element minOccurs="0" name="matrixCode" type="ser:guid" />
+          <xs:element minOccurs="0" name="measure" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="pickupDeliveryType" type="tns:Constants.PickupAndDeliveryType" />
+          <xs:element minOccurs="0" name="planificationTW" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="replyVehicles" type="xs:boolean" />
+          <xs:element minOccurs="0" name="reuseVehicles" type="xs:boolean" />
+          <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="vehicles" nillable="true" type="q64:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VRPData" nillable="true" type="tns:VRPData" />
+  <xs:simpleType name="Constants.Impedance">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Distance" />
+      <xs:enumeration value="Time" />
+      <xs:enumeration value="Cost" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Constants.Impedance" nillable="true" type="tns:Constants.Impedance" />
+  <xs:complexType name="IncompatibleCharacteristicPair">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="characteristic1" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="characteristic2" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="IncompatibleCharacteristicPair" nillable="true" type="tns:IncompatibleCharacteristicPair" />
+  <xs:complexType name="ZoningData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationData">
+        <xs:sequence>
+          <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="barriers" nillable="true" type="q65:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="capacityMeasure" nillable="true" type="xs:string" />
+          <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="clustersCapacities" nillable="true" type="q66:ArrayOfanyType" />
+          <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="customers" nillable="true" type="q67:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="mainLocation" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="measure" nillable="true" type="xs:anyType" />
+          <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="seedCandidates" nillable="true" type="q68:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ZoningData" nillable="true" type="tns:ZoningData" />
+  <xs:complexType name="LocateData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Data">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="coords" nillable="true" type="tns:ArrayOfCoords" />
+          <xs:element minOccurs="0" name="maxHierarchy" type="xs:int" />
+          <xs:element minOccurs="0" name="maxSnapTolerance" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocateData" nillable="true" type="tns:LocateData" />
+  <xs:complexType name="ArrayOfCoords">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Coords" nillable="true" type="tns:Coords" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCoords" nillable="true" type="tns:ArrayOfCoords" />
+  <xs:complexType name="OptimizationSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Solution">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="feasible" type="xs:boolean" />
+          <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="unfeasibleSituations" nillable="true" type="q69:ArrayOfanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OptimizationSolution" nillable="true" type="tns:OptimizationSolution" />
+  <xs:complexType name="Solution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Subject">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Solution" nillable="true" type="tns:Solution" />
+  <xs:complexType name="Subject">
+    <xs:sequence />
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Subject" nillable="true" type="tns:Subject" />
+  <xs:complexType name="LocateSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Solution">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="points" nillable="true" type="tns:ArrayOfFWLPoint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocateSolution" nillable="true" type="tns:LocateSolution" />
+  <xs:complexType name="ArrayOfFWLPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FWLPoint" nillable="true" type="tns:FWLPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFWLPoint" nillable="true" type="tns:ArrayOfFWLPoint" />
+  <xs:complexType name="ZALSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationSolution">
+        <xs:sequence>
+          <xs:element xmlns:q70="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="clusters" nillable="true" type="q70:ArrayOfKeyValueOfintClusterKVKUNVLf" />
+          <xs:element minOccurs="0" name="cost" type="xs:double" />
+          <xs:element minOccurs="0" name="minCapacitiesReached" type="xs:boolean" />
+          <xs:element xmlns:q71="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notClusterizedCustomers" nillable="true" type="q71:ArrayOfKeyValueOfintanyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ZALSolution" nillable="true" type="tns:ZALSolution" />
+  <xs:complexType name="Cluster">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="capacitiesRanges" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element xmlns:q72="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deliveryQuantities" nillable="true" type="q72:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="measure" nillable="true" type="xs:anyType" />
+      <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orders" nillable="true" type="q73:ArrayOfKeyValueOfintanyType" />
+      <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pickupQuantities" nillable="true" type="q74:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="seed" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Cluster" nillable="true" type="tns:Cluster" />
+  <xs:complexType name="ShortestPathSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Solution">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="oDMatrix" nillable="true" type="tns:MatrixMeasure" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShortestPathSolution" nillable="true" type="tns:ShortestPathSolution" />
+  <xs:complexType name="TSPSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationSolution">
+        <xs:sequence>
+          <xs:element xmlns:q75="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notAttendedDARPRequests" nillable="true" type="q75:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notAttendedItemsReasons" nillable="true" type="q76:ArrayOfKeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1" />
+          <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notAttendedOrders" nillable="true" type="q77:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="route" nillable="true" type="tns:Route" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TSPSolution" nillable="true" type="tns:TSPSolution" />
+  <xs:complexType name="UnfeasibleSituation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="constraintLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="constraintType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="item" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="routeCode" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="UnfeasibleSituation" nillable="true" type="tns:UnfeasibleSituation" />
+  <xs:complexType name="VRPSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationSolution">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cost" type="xs:double" />
+          <xs:element xmlns:q78="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notAttendedDARPRequests" nillable="true" type="q78:ArrayOfKeyValueOfintanyType" />
+          <xs:element xmlns:q79="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notAttendedItemsReasons" nillable="true" type="q79:ArrayOfKeyValueOfintArrayOfKeyValueOfstringanyTypety7Ep6D1" />
+          <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="notAttendedOrders" nillable="true" type="q80:ArrayOfKeyValueOfintanyType" />
+          <xs:element minOccurs="0" name="routes" nillable="true" type="tns:ArrayOfRoute" />
+          <xs:element xmlns:q81="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="usedVehicles" nillable="true" type="q81:ArrayOfKeyValueOfintArrayOfRouteKVKUNVLf" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VRPSolution" nillable="true" type="tns:VRPSolution" />
+  <xs:complexType name="ArrayOfRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Route" nillable="true" type="tns:Route" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoute" nillable="true" type="tns:ArrayOfRoute" />
+  <xs:complexType name="SimplifiedZALSolution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationSolution">
+        <xs:sequence>
+          <xs:element xmlns:q82="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="clusters" nillable="true" type="q82:ArrayOfKeyValueOfintSimplifiedClusterKVKUNVLf" />
+          <xs:element minOccurs="0" name="cost" type="xs:double" />
+          <xs:element minOccurs="0" name="notClusterizedCustomers" nillable="true" type="tns:ArrayOfSimplifiedZoningCustomer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimplifiedZALSolution" nillable="true" type="tns:SimplifiedZALSolution" />
+  <xs:complexType name="SimplifiedCluster">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="capacitiesRanges" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="customers" nillable="true" type="tns:ArrayOfSimplifiedZoningCustomer" />
+      <xs:element minOccurs="0" name="load" type="xs:double" />
+      <xs:element minOccurs="0" name="seed" nillable="true" type="tns:SimplifiedZoningCustomer" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="SimplifiedCluster" nillable="true" type="tns:SimplifiedCluster" />
+  <xs:complexType name="ShortestPathData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OptimizationData">
+        <xs:sequence>
+          <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="barriers" nillable="true" type="q83:ArrayOfKeyValueOflonganyType" />
+          <xs:element minOccurs="0" name="bidirectionalSearch" type="xs:boolean" />
+          <xs:element xmlns:q84="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="characteristicsCompatibilities" nillable="true" type="q84:ArrayOfKeyValueOflongArrayOfKeyValueOflonglongty7Ep6D1" />
+          <xs:element xmlns:q85="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="characteristicsRestrictions" nillable="true" type="q85:ArrayOfKeyValueOflongArrayOfKeyValueOflonglongty7Ep6D1" />
+          <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="destinations" nillable="true" type="q86:ArrayOfKeyValueOflonganyType" />
+          <xs:element minOccurs="0" name="hierarchyAllowed" type="xs:boolean" />
+          <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="hierarchyRange" nillable="true" type="q87:ArrayOfint" />
+          <xs:element minOccurs="0" name="impedanceField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lengthField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="matrix" nillable="true" type="tns:MatrixMeasure" />
+          <xs:element minOccurs="0" name="network" nillable="true" type="tns:Network" />
+          <xs:element xmlns:q88="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="origins" nillable="true" type="q88:ArrayOfKeyValueOflonganyType" />
+          <xs:element xmlns:q89="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="restrictions" nillable="true" type="q89:ArrayOfstring" />
+          <xs:element minOccurs="0" name="returnPaths" type="xs:boolean" />
+          <xs:element minOccurs="0" name="stopSearchFactor" type="xs:double" />
+          <xs:element minOccurs="0" name="timeField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="uTurns" type="tns:Constants.UTurnAtJunctions" />
+          <xs:element minOccurs="0" name="useDijkstra" type="xs:boolean" />
+          <xs:element minOccurs="0" name="vehicleCategory" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShortestPathData" nillable="true" type="tns:ShortestPathData" />
+  <xs:complexType name="Network">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="edges" nillable="true" type="tns:ArrayOfEdge" />
+      <xs:element minOccurs="0" name="junctions" nillable="true" type="tns:ArrayOfJunction" />
+      <xs:element minOccurs="0" name="maxHierachy" type="xs:int" />
+      <xs:element minOccurs="0" name="minHierarchy" type="xs:int" />
+      <xs:element xmlns:q90="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="restrictions" nillable="true" type="q90:ArrayOfKeyValueOfstringshort" />
+      <xs:element xmlns:q91="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="trace" nillable="true" type="q91:ArrayOfint" />
+      <xs:element minOccurs="0" name="turns" nillable="true" type="tns:ArrayOfTurn" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Network" nillable="true" type="tns:Network" />
+  <xs:complexType name="ArrayOfEdge">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Edge" nillable="true" type="tns:Edge" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEdge" nillable="true" type="tns:ArrayOfEdge" />
+  <xs:complexType name="Edge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="distance" type="xs:double" />
+      <xs:element minOccurs="0" name="hierarchy" type="xs:int" />
+      <xs:element minOccurs="0" name="junctionFrom" type="xs:int" />
+      <xs:element minOccurs="0" name="junctionTo" type="xs:int" />
+      <xs:element xmlns:q92="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="restrictions" nillable="true" type="q92:ArrayOfboolean" />
+      <xs:element minOccurs="0" name="time" type="ser:duration" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Edge" nillable="true" type="tns:Edge" />
+  <xs:complexType name="ArrayOfJunction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Junction" nillable="true" type="tns:Junction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJunction" nillable="true" type="tns:ArrayOfJunction" />
+  <xs:complexType name="Junction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="coords" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="distance" type="xs:double" />
+      <xs:element minOccurs="0" name="initialEdgePos" type="xs:int" />
+      <xs:element minOccurs="0" name="time" type="ser:duration" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Junction" nillable="true" type="tns:Junction" />
+  <xs:complexType name="ArrayOfTurn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Turn" nillable="true" type="tns:Turn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTurn" nillable="true" type="tns:ArrayOfTurn" />
+  <xs:complexType name="Turn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:int" />
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="distance" type="xs:double" />
+      <xs:element xmlns:q93="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="edges" nillable="true" type="q93:ArrayOfint" />
+      <xs:element xmlns:q94="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="restrictions" nillable="true" type="q94:ArrayOfboolean" />
+      <xs:element minOccurs="0" name="time" type="ser:duration" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Turn" nillable="true" type="tns:Turn" />
+  <xs:simpleType name="Constants.UTurnAtJunctions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Allowed" />
+      <xs:enumeration value="AllowedOnlyAtIntersectionsAndDeadEnds" />
+      <xs:enumeration value="AllowedOnlyAtDeadEnds" />
+      <xs:enumeration value="NotAllowed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Constants.UTurnAtJunctions" nillable="true" type="tns:Constants.UTurnAtJunctions" />
+</xs:schema>
