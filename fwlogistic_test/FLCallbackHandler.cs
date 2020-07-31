@@ -52,12 +52,14 @@ namespace fwlogistic_test
 
         public void EndServerPing(IAsyncResult result)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("EndServerPing");
+
         }
 
         public void ErrorInProblem(ProblemAbstract p, string errorMessage)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ErrorInProblem");
+
         }
 
         public void ProblemCanceled(ProblemAbstract p)
@@ -72,7 +74,7 @@ namespace fwlogistic_test
 
         public void ProblemSolved(ProblemAbstract p)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ProblemSolved");
         }
 
         public void ServerPing(DateTime timestamp)

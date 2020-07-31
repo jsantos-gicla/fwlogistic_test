@@ -24,12 +24,12 @@ namespace fwlogistic_test
                 _client = new fwlsServiceClient(context);
 
                 Console.WriteLine("Ejecutando: SessionCreate");
-                var _session = _client.SessionCreate(out err_msg, "WIS", "wis", "wis");
+                _session = _client.SessionCreate(out err_msg, "WIS", "wis", "wis");
 
                 if (string.IsNullOrEmpty(err_msg) && _session != null)
                 {
                     Console.WriteLine("SessionCreate: OK");
-
+                    Guid externalId = new Guid();
                     int value = _client.ServerAlive();
 
                     Coords coords = new Coords
@@ -40,7 +40,7 @@ namespace fwlogistic_test
 
                     List<Coords> coordsList = new List<Coords>
                     {
-                                coords
+                            coords
                     };
 
                     LocateData locateData = new LocateData
@@ -51,7 +51,11 @@ namespace fwlogistic_test
                     };
 
                     Console.WriteLine("Ejecutando LocateOverNetworkAsync");
-                    _client.LocateOverNetworkAsync(_session, new Guid(), locateData, null);
+                    _client.LocateOverNetworkAsync(_session, externalId, locateData, null);
+
+                    Console.WriteLine("Ejecutando GetProblemSolutionAsync");
+                    _client.GetProblemSolutionAsync(_session, externalId, true, null);
+
                 }
                 else
                 {
@@ -59,6 +63,10 @@ namespace fwlogistic_test
                 }
 
                 Console.WriteLine("Service Wait");
+                string serive_wait = Console.ReadLine();
+
+                Console.WriteLine("Presione una tecla para terminar");
+                string input_fin = Console.ReadLine();
             }
             catch (Exception ex)
             {
@@ -72,14 +80,13 @@ namespace fwlogistic_test
                     string errmsg = null;
                     _client.SessionClose(out errmsg, _session);
                     if (!string.IsNullOrEmpty(errmsg))
-                    {
                         Console.WriteLine("ERROR SessionClose: " + errmsg);
-                    }
+                    else
+                        Console.WriteLine("SessionClose: OK");
                 }
             }
 
-            Console.WriteLine("Presione una tecla para terminar");
-            string input_fin = Console.ReadLine();
+            string end = Console.ReadLine();
         }
     }
 }
